@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benificiaries</title>
+<!-- font family -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+<!-- jquery link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<!-- css link -->
+<link rel="stylesheet" href="./public/css/style.min.css">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- Fontawesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="body ">
+  <header>
+    <nav class="navbar bg-dark text-light head">
+      <div class="container-fluid">
+        <a class="navbar-brand text-light">EFFE</a>
+        <form class="d-flex" role="search">
+          <button class="btn text-light" type="submit"><i
+              class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <div class="container" id="blur">
+    <div class="title name">
+        <h1 class="text-center py-3">Assignment Information Form</h1>
+        <p class="text-center">This information can be collected as like a form where they entered the initial
+            detail then
+            save and proceed to other info</p>
+    </div>
+
+    <div class=" content bg-white form-check form-check-inline d-flex justify-content-center pt-1 mb-1">
+        <p><i
+                class="fa-sharp fa-solid fa-circle-check text-success d-flex justify-content-center py-1"></i>Benificiaries
+        </p>
+    </div>
+    <div class="back">
+        <div class="d-flex must pt-3 justify-content-between">
+            <p class="text px-2">Benificiaries</p>
+            <p><a href="#" onclick="toggle()"><i class="fa-solid fa-circle-plus pe-1 text-primary"></i></a><span>Add Benificiaries</span></p>
+        </div>
+        <div class="container-1 pt-4" style="overflow-x: auto">
+            <table class="table table-borderless text-center">
+                <thead class="thead bg-dark">
+                    <tr class="text-light">
+                        <th scope="col">Bene first name</th>
+                        <th scope="col">Bene last name</th>
+                        <th scope="col">Relationship</th>
+                        <th scope="col">Date of birth</th>
+                        <th scope="col">Bene email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="book-list">
+                    <tr>
+                        <td>Surya</td>
+                        <td>stefan</td>
+                        <td>friend</td>
+                        <td>20-08-2001</td>
+                        <td>steve@gmail.com</td>
+                        <td><i class="fa-solid fa-pencil text-primary px-3"></i><i
+                                class="fa-solid fa-trash-can text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Chandru</td>
+                        <td>surya</td>
+                        <td>bond</td>
+                        <td>19-04-2004</td>
+                        <td>Chandru@gmail.com</td>
+                        <td><i class="fa-solid fa-pencil text-primary px-3"></i><i
+                                class="fa-solid fa-trash-can text-danger"></i></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-end pb-3">
+            <button type="button" class="btn btn-secondary ">Previous</button>
+            <button type="button" class="btn btn-success">Save & Proceede</button>
+            <div class="alert hide">        
+                <span class="msg">Successfull saved.....</span>        
+            </div>
+             <script>
+                $('button').click(function(){
+                  $('.alert').addClass("show");
+                  $('.alert').removeClass("hide");
+                  $('.alert').addClass("showAlert");
+                  setTimeout(function(){
+                    $('.alert').removeClass("show");
+                    $('.alert').addClass("hide");
+                  },1000);
+                });
+                $('.close-btn').click(function(){
+                  $('.alert').removeClass("show");
+                  $('.alert').addClass("hide");
+                });
+             </script>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="overflow-x: auto"id="popup">
+    <div class="d-flex justify-content-between pt-1 px-2 bg-dark">
+        <p class="bg-dark text-light ps-2 pt-3">Add Benificiaries</p>
+        <p> <a href="#" onclick="toggle()"><i class="fa-solid fa-xmark text-light pe-2 pt-3"></i></a></p>
+    </div>
+  <form class="row g-3 needs-validation" id="book-form" novalidate>
+      <div class="col-md-4">
+          <label for="fname"  class="form-label">First name</label>
+          <input type="text" class="form-control" id="fname" required
+              placeholder="Enter your First name">
+              <div class="invalid-feedback">
+                Please choose a First name.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="lname"  class="form-label">Last name</label>
+          <input type="text" class="form-control" id="lname" required
+              placeholder="Enter your Last name">
+              <div class="invalid-feedback">
+                Please choose a second name.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="rname" class="form-label">Relationship</label>
+          <input type="text" class="form-control" id="rname" required
+              placeholder="Enter Relationship">
+              <div class="invalid-feedback">
+                Please choose a Relationship.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="dbirth" class="form-label">Date of birth</label>
+          <input type="date" class="form-control" id="dbirth"  required
+              placeholder="Enter Relationship">
+              <div class="invalid-feedback">
+                Please select a date.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Address one</label>
+          <input type="text" class="form-control" id="validationCustom02" required
+              placeholder="Enter Address one">
+              <div class="invalid-feedback">
+                Please provide a valid address.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Address two</label>
+          <input type="text" class="form-control" id="validationCustom02" required placeholder="Address two">
+          <div class="invalid-feedback">
+            Please provide a valid address.
+          </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">City</label>
+          <input type="text" class="form-control" id="validationCustom02" required placeholder="Enter City">
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">State</label>
+          <input type="text" class="form-control" id="validationCustom02" required placeholder="Enter State">
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Zip code</label>
+          <input type="text" class="form-control" id="validationCustom02" required placeholder="Enter Zip code">
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Home phonenumber</label>
+          <input type="text" class="form-control" id="validationCustom02" pattern="[0-9]{10}" required
+              placeholder="Enter your Home phonenumber">
+              <div class="invalid-feedback">
+                Please fill out this field.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Work phonenumber</label>
+          <input type="text" class="form-control" id="validationCustom02" pattern="[0-9]{10}" required
+              placeholder="Enter your Work phonenumber">
+              <div class="invalid-feedback">
+                Please fill out this field.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Cell phonenumber</label>
+          <input type="text" class="form-control" id="validationCustom02" pattern="[0-9]{10}" required
+              placeholder="Enter your cell phonenumber">
+              <div class="invalid-feedback">
+                Please fill out this field.
+              </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="bemail"  class="form-label">Bene email</label>
+          <input type="text" class="form-control" id="bemail" required placeholder="Enter Bene email">
+          <div class="invalid-feedback">
+            Please fill out this field.
+          </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom04" class="form-label">Bene living status</label>
+          <select class="form-select" id="validationCustom04" required>
+              <option selected disabled value="">Select...</option>
+              <option>...</option>
+          </select>
+          <div class="invalid-feedback">
+              Please select a valid state.
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom02"  class="form-label">Bene SSN</label>
+          <input type="text" class="form-control" id="pwd" required placeholder="Enter Bene SSN">
+          <div class="invalid-feedback">
+            Please fill out this field.
+          </div>
+          <div class="valid-feedback">
+              Looks good!
+          </div>
+      </div>
+      <div class="col-12 text-end py-3"> 
+        <button class="btn btn-secondary me-2" onclick="toggle()">Cancel</button>
+        <button class="btn btn-success" id="submit"  type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+ <script src="./assets/js/main.js"></script>
+</body>
+</html>
